@@ -6,40 +6,16 @@
 %%
 %% plext.dtx  (with options: `package')
 %% 
-%% IMPORTANT NOTICE:
+%% Copyright (c) 2010 ASCII MEDIA WORKS
+%% Copyright (c) 2016 Japanese TeX Development Community
 %% 
-%% For the copyright see the source file.
+%% This file is part of the pLaTeX2e system (community edition).
+%% -------------------------------------------------------------
 %% 
-%% Any modified versions of this file must be renamed
-%% with new filenames distinct from plext.sty.
-%% 
-%% For distribution of the original source see the terms
-%% for copying and modification in the file plext.dtx.
-%% 
-%% This generated file may be distributed as long as the
-%% original source files, as listed above, are part of the
-%% same distribution. (The sources need not necessarily be
-%% in the same archive or directory.)
 %% File: plext.dtx
-%% \CharacterTable
-%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
-%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
-%%   Digits        0\1\2\3\4\5\6\7\8\9
-%%   Exclamation   \!     Double quote  \"     Hash (number) \#
-%%   Dollar        \$     Percent       \%     Ampersand     \&
-%%   Acute accent  \'     Left paren    \(     Right paren   \)
-%%   Asterisk      \*     Plus          \+     Comma         \,
-%%   Minus         \-     Point         \.     Solidus       \/
-%%   Colon         \:     Semicolon     \;     Less than     \<
-%%   Equals        \=     Greater than  \>     Question mark \?
-%%   Commercial at \@     Left bracket  \[     Backslash     \\
-%%   Right bracket \]     Circumflex    \^     Underscore    \_
-%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
-%%   Right brace   \}     Tilde         \~}
-%%
 \NeedsTeXFormat{pLaTeX2e}
 \ProvidesPackage{plext}
-   [2016/02/28 v1.2a pLaTeX package file (community edition)]
+   [2016/08/20 v1.2a-beta pLaTeX package file (community edition)]
 \newif\if@rotsw
 \newif\if@plext@math
 \def\array{%
@@ -57,7 +33,7 @@
 \def\X@tabular{\@ifnextchar<%>
    {\p@tabular}{\p@tabular<Z>}}
 \def\@stabular<#1>#2{\def\@halignto{to#2}\p@tabular<#1>}
-\def\p@tabular<#1>{\leavevmode\null\hbox \bgroup $\let\@acol\@tabacol
+\def\p@tabular<#1>{\leavevmode \null\hbox \bgroup $\let\@acol\@tabacol
    \let\@classz\@tabclassz
    \let\@classiv\@tabclassiv \let\\\@tabularcr\p@tabarray<#1>}
 \def\p@tabarray<#1>{\m@th\@ifnextchar[%]
@@ -75,9 +51,9 @@
              \@depth\arraystretch\dp\tstrutbox \@width\z@
     \fi\fi
   \else
-    \if #1t\relax\hbox{\tate
+    \if #1t\relax\tate
        \vrule\@height\arraystretch\ht\tstrutbox
-             \@depth\arraystretch\dp\tstrutbox \@width\z@}%
+             \@depth\arraystretch\dp\tstrutbox \@width\z@
     \else
        \vrule\@height\arraystretch\ht\strutbox
              \@depth\arraystretch\dp\strutbox \@width\z@
