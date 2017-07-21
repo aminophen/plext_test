@@ -15,7 +15,7 @@
 %% File: plext.dtx
 \NeedsTeXFormat{pLaTeX2e}
 \ProvidesPackage{plext}
-   [2017/03/02 v1.2e-a01 pLaTeX package file (community edition)]
+   [2017/05/02 v1.2f-a03 pLaTeX package file (community edition)]
 \newif\if@rotsw
 \def\array{\let\@acol\@arrayacol \let\@classz\@arrayclassz
   \let\@classiv\@arrayclassiv
@@ -93,13 +93,15 @@
      \def\@begin@alignbox{%
          \@tempdima=\tbaselineshift
          \advance\@tempdima-\ybaselineshift
-         \raise\@tempdima\vtop\bgroup\kern\z@\vtop}%
+         \advance\@tempdima\ht\tstrutbox
+         \raise\arraystretch\@tempdima\vtop\bgroup\kern\z@\vtop}%
      \let\@end@alignbox\egroup
   \else\if #2b\relax
      \def\@begin@alignbox{%
          \@tempdima=\tbaselineshift
          \advance\@tempdima-\ybaselineshift
-         \raise\@tempdima\vbox\bgroup\vbox}%
+         \advance\@tempdima-\dp\tstrutbox
+         \raise\arraystretch\@tempdima\vbox\bgroup\vbox}%
      \def\@end@alignbox{\kern\z@\egroup}%
   \else
      \let\@begin@alignbox\vcenter
@@ -345,10 +347,10 @@
 \iftdir
 \if #1y\relax\let\box@dir\yoko
    \if #2t\relax
-      \def\@begin@parbox{\vtop\bgroup\kern\z@\vtop}%
+      \def\@begin@parbox{\raise\cht\vtop\bgroup\kern\z@\vtop}%
       \let\@end@parbox\egroup
    \else\if #2b\relax
-      \def\@begin@parbox{\vbox\bgroup\vbox}%
+      \def\@begin@parbox{\lower\cdp\vbox\bgroup\vbox}%
       \def\@end@parbox{\kern\z@\egroup}%
    \else\ifmmode
       \let\@begin@parbox\vcenter
@@ -359,10 +361,10 @@
    \fi\fi\fi
 \else\if #1z\relax\@rotswtrue \let\box@dir\relax
    \if #2t\relax
-      \def\@begin@parbox{\vtop\bgroup\kern\z@\vtop}%
+      \def\@begin@parbox{\raise\cht\vtop\bgroup\kern\z@\vtop}%
       \let\@end@parbox\egroup
    \else\if #2b\relax
-      \def\@begin@parbox{\vbox\bgroup\vbox}%
+      \def\@begin@parbox{\lower\cdp\vbox\bgroup\vbox}%
       \def\@end@parbox{\kern\z@\egroup}%
    \else\ifmmode
       \let\@begin@parbox\vcenter
@@ -389,10 +391,10 @@
 \else
 \if #1t\relax\let\box@dir\tate
    \if #2t\relax
-      \def\@begin@parbox{\vtop\bgroup\kern\z@\vbox}%
+      \def\@begin@parbox{\raise\cht\vtop\bgroup\kern\z@\vtop}%
       \let\@end@parbox\egroup
    \else\if #2b\relax
-      \def\@begin@parbox{\vbox\bgroup\vbox}%
+      \def\@begin@parbox{\lower\cdp\vbox\bgroup\vbox}%
       \def\@end@parbox{\kern\z@\egroup}%
    \else\ifmmode
       \let\@begin@parbox\vcenter

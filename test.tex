@@ -4,7 +4,7 @@
 \DeclareFontShape{OT1}{mycmr}{m}{n}{<-> s*[0.7] cmr10}{}
 \DeclareFontShape{OT1}{mycmr}{bx}{n}{<-> s*[0.7] cmbx10}{}
 \def\rmdefault{mycmr}\rmfamily
-
+\def\arraystretch{3}\usepackage{otf}
 \newif\ifMATH
 %\usepackage{plext}
 \usepackage{xcolor}
@@ -43,8 +43,9 @@
 \setbox0=\hbox{\ifMATH$\fi\tabcolsep\z@%
   \ifx\BASEDIR\tate\setbox\strutbox=\copy\tstrutbox\fi
   \setbox0=\hbox{%
-    \begin{tabular}#2[#1]{l}
-      \hline ◆\smash{abcde}あいう◆\\ \hline
+    \begin{tabular}#2[#1]{l}\hline
+      ◆\smash{abcde}あいう◆\\◆あいう◆あいう◆\\
+      ◆\smash{abcde}あいう◆\\\hline
     \end{tabular}}%
   \leavevmode%
   \textcolor{green!70!black}{%
